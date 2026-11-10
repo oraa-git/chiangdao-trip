@@ -3,7 +3,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="build" content="20261110204505">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<script>
+(function(){
+  if (location.protocol === "file:") return;
+  var cur = "20261110204505", busy = false;
+  function check(){
+    if (busy) return; busy = true;
+    fetch(location.pathname + "?check=" + Date.now(), {cache: "no-store"})
+      .then(function(r){ return r.ok ? r.text() : ""; })
+      .then(function(t){
+        var m = t.match(/<meta name="build" content="(\d+)"/);
+        if (m && m[1] !== cur && location.search.indexOf("v=" + m[1]) === -1) {
+          location.replace(location.pathname + "?v=" + m[1] + location.hash);
+        }
+      })
+      .catch(function(){})
+      .then(function(){ busy = false; });
+  }
+  check();
+  document.addEventListener("visibilitychange", function(){ if (!document.hidden) check(); });
+})();
+</script>
 <title>ทริปดอยหลวงเชียงดาว 2570</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
