@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>ทริปดอยหลวงเชียงดาว 2570</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: misty-ridge hero with countdown, sticky day chips, one vertical timeline per day */
+:root{
+  --bg:#f3f5f2;          /* limestone mist */
+  --surface:#ffffff;
+  --fg:#1d2a24;          /* pine ink */
+  --muted:#5d6b64;
+  --line:#d5ddd8;
+  --pine:#2f5d4a;
+  --dawn:#d9822b;        /* sunrise over the summit */
+  --dawn-soft:#fbead6;
+  --warn-bg:#fff4e0;
+  --warn-fg:#8a4b0c;
+  --ridge1:#c9d6cf; --ridge2:#9fb5aa; --ridge3:#6f8f81;
+  --f-display:"Mitr","IBM Plex Sans Thai",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans Thai",system-ui,"Leelawadee UI",Tahoma,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+/* Light-only by design: white page in every viewer theme */
+:root{--pine-soft:#e8f0ec;color-scheme:light}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.65;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;text-wrap:balance;margin:0;line-height:1.3}
+a{color:var(--pine)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--dawn);outline-offset:2px;border-radius:4px}
+
+/* Hero */
+.hero{padding-block:16px 8px}
+.hero-photo{position:relative;margin:0;border-radius:16px;overflow:hidden;aspect-ratio:21/9;max-width:100%;background:var(--ridge2)}
+.hero-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero-text{margin-top:22px}
+.eyebrow{font-size:.82rem;letter-spacing:.06em;color:var(--pine);font-weight:600}
+.hero h1{font-size:clamp(1.8rem,6vw,2.8rem);font-weight:600;margin-top:4px}
+.hero h1 span{color:var(--dawn)}
+.dates{font-size:1.05rem;color:var(--muted);margin-top:2px}
+@media (max-width:720px){.hero-photo{aspect-ratio:16/10}}
+@media (max-width:460px){.hero-photo{aspect-ratio:4/3;border-radius:12px}.hero-photo img{object-position:42% 50%}}
+.facts{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:20px;font-size:.92rem}
+.facts div{display:flex;flex-direction:column}
+.facts b{font-family:var(--f-mono);font-size:1.15rem;font-weight:500;color:var(--fg);font-variant-numeric:tabular-nums}
+.facts small{color:var(--muted);font-size:.8rem}
+.countdown{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:12px}
+.cd-label{font-size:.92rem;color:var(--muted)}
+.cd-label b{color:var(--fg);font-weight:600}
+.cd-units{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.cd-units div{background:var(--pine-soft);border-radius:10px;padding:10px 4px 8px;text-align:center;display:flex;flex-direction:column;min-width:0}
+.cd-units b{font-family:var(--f-mono);font-size:clamp(1.5rem,7vw,2.4rem);font-weight:500;color:var(--pine);font-variant-numeric:tabular-nums;line-height:1.15}
+.cd-units small{font-size:.8rem;color:var(--muted)}
+.cd-units div:first-child{background:var(--dawn-soft)}
+.cd-units div:first-child b{color:var(--warn-fg)}
+
+/* Pre-trip */
+.prep{padding-block:24px;border-bottom:1px solid var(--line);scroll-margin-top:64px}
+.prep-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px;margin-top:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.card h3{font-size:1.1rem}
+.card p{margin:0}
+.card .must{margin-top:0;align-self:flex-start}
+.lessons{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.les{position:relative;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:8px;padding-block:7px;font-size:.85rem;cursor:pointer;user-select:none;font-variant-numeric:tabular-nums}
+.les input{position:absolute;opacity:0;pointer-events:none}
+.les:has(input:checked){background:var(--pine);border-color:var(--pine);color:var(--bg)}
+.les:has(input:focus-visible){outline:2px solid var(--dawn);outline-offset:2px}
+.prog{font-size:.85rem;color:var(--muted);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.prog b{color:var(--pine);font-family:var(--f-mono);font-weight:500}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.chk{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.chk input{width:18px;height:18px;margin-top:4px;accent-color:var(--pine);flex:none}
+.chk span{min-width:0}
+.chk small{display:block;color:var(--muted);font-size:.85rem}
+.chk:has(input:checked) > span > b{text-decoration:line-through;color:var(--muted)}
+.chk b{font-weight:500}
+.hint{font-size:.78rem;color:var(--muted)}
+.wide{grid-column:1/-1}
+.card-head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.pill{font-size:.78rem;padding:2px 10px;border-radius:999px;background:var(--pine-soft);color:var(--pine);font-weight:600}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:10px}
+.steps li{display:flex;gap:10px;border:1px solid var(--line);border-radius:10px;padding:12px;min-width:0}
+.steps li > div{min-width:0}
+.sn{flex:none;width:26px;height:26px;border-radius:50%;background:var(--pine);color:var(--surface);display:grid;place-items:center;font-family:var(--f-mono);font-size:.85rem}
+.steps b{font-weight:600}
+.steps p{font-size:.88rem;color:var(--muted);margin:2px 0 0}
+.steps .map{overflow-wrap:anywhere}
+.wide .lessons{grid-template-columns:repeat(8,1fr)}
+@media (max-width:560px){.wide .lessons{grid-template-columns:repeat(4,1fr)}}
+/* Document tiles */
+.docs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.doc{position:relative;display:flex;flex-direction:column;gap:12px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--bg);cursor:pointer;min-width:0;transition:border-color .15s,background-color .15s}
+.doc:hover{border-color:var(--ridge3)}
+.doc input{position:absolute;opacity:0;pointer-events:none}
+.doc-ic{flex:none;width:42px;height:42px;border-radius:11px;background:var(--pine-soft);color:var(--pine);display:grid;place-items:center}
+.doc-ic svg{width:24px;height:24px}
+.doc-tx{min-width:0;padding-right:28px}
+.doc-tx b{display:block;font-weight:600;line-height:1.4}
+.doc-tx small{display:block;color:var(--muted);font-size:.85rem;line-height:1.5;margin-top:2px}
+.doc-ck{position:absolute;top:16px;right:16px;width:22px;height:22px;border-radius:50%;border:2px solid var(--line);background:var(--surface)}
+.doc:has(input:checked){border-color:var(--pine);background:var(--pine-soft)}
+.doc:has(input:checked) .doc-ic{background:var(--surface)}
+.doc:has(input:checked) .doc-ck{background:var(--pine);border-color:var(--pine)}
+.doc:has(input:checked) .doc-ck::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid var(--surface);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.doc:has(input:focus-visible){outline:2px solid var(--dawn);outline-offset:2px}
+@media (max-width:640px){
+  .docs{grid-template-columns:1fr}
+  .doc{flex-direction:row;align-items:center;padding:14px}
+  .doc-ck{top:50%;margin-top:-11px}
+}
+/* Medical certificate window */
+.medwin{border-top:1px dashed var(--line);padding-top:14px;display:grid;gap:10px}
+.medwin-h{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:.92rem}
+.medwin-h b{font-weight:600}
+.medwin-h span{color:var(--muted)}
+.days8{display:grid;grid-template-columns:repeat(8,1fr);gap:4px}
+.days8 span{display:flex;flex-direction:column;align-items:center;padding:6px 0 7px;border-radius:8px;background:var(--pine-soft);color:var(--pine);font-family:var(--f-mono);font-size:1rem;font-variant-numeric:tabular-nums;line-height:1.2;min-width:0}
+.days8 small{font-family:var(--f-body);font-size:.7rem;color:var(--muted)}
+.days8 .go,.days8 .train{box-shadow:inset 0 0 0 2px var(--pine)}
+.days8 .up{background:var(--dawn-soft);color:var(--warn-fg)}
+.legend{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:.8rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.k-ok{background:var(--pine-soft)}
+.k-go{background:var(--pine-soft);box-shadow:inset 0 0 0 2px var(--pine)}
+.k-up{background:var(--dawn-soft)}
+.sheet-link{margin-top:16px;display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:12px;text-decoration:none;color:var(--fg);transition:border-color .15s}
+.sheet-link:hover{border-color:var(--pine)}
+.sheet-link .doc-tx{flex:1;padding-right:0}
+.sheet-link .arrow{color:var(--pine);font-size:1.2rem}
+.fine{font-size:.85rem;color:var(--muted);margin:0;padding-left:1.1em;display:grid;gap:4px}
+
+.photo{margin:10px 0 0;border-radius:10px;overflow:hidden;max-width:100%;background:var(--ridge1)}
+.photo img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.photo figcaption{font-size:.8rem;color:var(--muted);padding:6px 10px 8px;background:var(--surface)}
+
+/* Day nav */
+.daynav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.daynav .wrap{display:flex;gap:6px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+.daynav a{flex:0 0 auto;text-decoration:none;color:var(--fg);border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 14px;font-size:.88rem;white-space:nowrap}
+.daynav a.is-today{border-color:var(--dawn);color:var(--dawn);font-weight:600}
+
+/* Days */
+main{padding-block:24px 48px}
+.day{padding-block:24px;border-bottom:1px solid var(--line);scroll-margin-top:64px}
+.day:last-of-type{border-bottom:0}
+.dayhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.daynum{font-family:var(--f-mono);font-size:.8rem;color:var(--muted);letter-spacing:.06em}
+.dayhead h2{font-size:1.45rem}
+.tag{font-size:.78rem;padding:2px 10px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--muted)}
+.tag.summit{background:var(--dawn-soft);border-color:transparent;color:var(--dawn);font-weight:600}
+.tag.now{background:var(--dawn);border-color:transparent;color:var(--bg);font-weight:600}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.95rem}
+
+.tl{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:0}
+.tl li{display:grid;grid-template-columns:96px 1fr;gap:14px;position:relative;padding-bottom:16px}
+.tl li::before{content:"";position:absolute;left:108px;top:10px;bottom:-4px;width:1px;background:var(--line)}
+.tl li:last-child::before{display:none}
+.tl li::after{content:"";position:absolute;left:104px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:2px solid var(--pine)}
+.tl li.key::after{background:var(--dawn);border-color:var(--dawn)}
+.time{font-family:var(--f-mono);font-size:.88rem;color:var(--pine);text-align:right;padding-top:1px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.what{min-width:0;padding-left:14px}
+.what p{margin:0}
+.what .note{color:var(--muted);font-size:.9rem;margin-top:2px}
+.must{display:inline-block;margin-top:6px;font-size:.85rem;background:var(--warn-bg);color:var(--warn-fg);padding:3px 10px;border-radius:6px}
+.tbd{background:var(--warn-bg);color:var(--warn-fg);padding:0 6px;border-radius:4px;font-size:.9em}
+.map{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:.88rem;text-decoration:none;border:1px solid var(--line);background:var(--surface);padding:3px 12px;border-radius:999px;color:var(--pine)}
+.map:hover{border-color:var(--pine)}
+
+.trail{margin-top:10px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.trail svg{display:block;width:100%;height:70px}
+.trail .lbls{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);gap:8px}
+
+/* Notes */
+.notes{margin-top:32px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
+.notes h2{font-size:1.15rem}
+.notes ul{margin:10px 0 0;padding-left:1.2em;display:grid;gap:6px}
+footer{color:var(--muted);font-size:.82rem;text-align:center;padding-block:0 32px}
+
+@media (max-width:480px){
+  .tl li{grid-template-columns:62px 1fr;gap:10px}
+  .tl li::before{left:70px}
+  .tl li::after{left:66px}
+  .time{font-size:.8rem}
+  .dayhead h2{font-size:1.3rem}
+  .card{padding:16px}
+}
+@media (max-width:360px){
+  .tl li{grid-template-columns:1fr;gap:0;padding-left:22px}
+  .tl li::before{left:4px}
+  .tl li::after{left:0}
+  .time{text-align:left}
+  .what{padding-left:0}
+  .lessons{grid-template-columns:repeat(4,1fr);gap:4px}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <figure class="hero-photo">
+      <img src="img/chiangdao.jpg" alt="ดอยหลวงเชียงดาว มีเมฆหมวกปกคลุมยอดเขา">
+    </figure>
+    <div class="hero-text">
+      <div class="eyebrow">เขตรักษาพันธุ์สัตว์ป่าเชียงดาว · เชียงใหม่</div>
+      <h1>ทริปดอยหลวง<span>เชียงดาว</span></h1>
+      <div class="dates">พุธ 6 – อาทิตย์ 10 มกราคม 2570</div>
+    </div>
+    <div class="facts">
+      <div><b>5 วัน</b><small>นอนรถ 1 · โฮมสเตย์ 1 · บนดอย 1 · แม่งัด 1</small></div>
+      <div><b>8.5 กม.</b><small>เด่นหญ้าขัด → ลานกางเต็นท์</small></div>
+      <div><b>2,225 ม.</b><small>ความสูงยอดดอยหลวงเชียงดาว</small></div>
+    </div>
+    <div class="countdown" id="countdown">
+      <div class="cd-label" id="cd-label">นับถอยหลังถึงวันออกเดินทาง · <b>พ. 6 ม.ค. 2570 เวลา 19:00 น.</b></div>
+      <div class="cd-units" id="cd-units">
+        <div><b id="cd-d">–</b><small>วัน</small></div>
+        <div><b id="cd-h">–</b><small>ชั่วโมง</small></div>
+        <div><b id="cd-m">–</b><small>นาที</small></div>
+        <div><b id="cd-s">–</b><small>วินาที</small></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="daynav" aria-label="เลือกวัน">
+  <div class="wrap">
+    <a href="#prep">ก่อนเดินทาง</a>
+    <a href="#d1" data-date="2027-01-06">พ. 6 · ออกเดินทาง</a>
+    <a href="#d2" data-date="2027-01-07">พฤ. 7 · อบรม</a>
+    <a href="#d3" data-date="2027-01-08">ศ. 8 · เดินขึ้นดอย</a>
+    <a href="#d4" data-date="2027-01-09">ส. 9 · ยอด → แม่งัด</a>
+    <a href="#d5" data-date="2027-01-10">อา. 10 · กลับบ้าน</a>
+    <a href="#money">ค่าใช้จ่าย</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section class="prep" id="prep">
+    <div class="dayhead"><span class="daynum">ก่อนเดินทาง</span><h2>ต้องเสร็จก่อนออกจากบ้าน</h2></div>
+    <p class="sub">ถ้าไม่ผ่าน 2 ข้อนี้ จะเข้าอบรมหน้างานวันพฤหัสบดี 7 ม.ค. ไม่ได้</p>
+    <div class="prep-grid">
+      <article class="card wide">
+        <div class="card-head"><h3>อบรมออนไลน์ (E-learning)</h3><span class="pill" id="el-open">เปิดระบบ 1 พ.ย. 2569 · 10:30 น.</span></div>
+        <p>หลักสูตรเส้นทางศึกษาธรรมชาติดอยหลวงเชียงดาว ประจำปี พ.ศ. 2569–2570 ต้องเรียนให้ครบทั้ง 8 บทเรียนและได้รับใบประกาศนียบัตร เพื่อใช้ประกอบการเข้ารับการอบรม Onsite ที่อาคารอเนกประสงค์วัดถ้ำเชียงดาว</p>
+        <ol class="steps">
+          <li><span class="sn">1</span><div><b>สมัครสมาชิก Lifelong CMU</b><p>สมัครเป็นผู้เรียนตามขั้นตอนปกติ ไม่ต้องเชื่อมต่อกับ Thai ID หรือบัญชีอื่น ๆ</p><a class="map" href="https://www.lifelong.cmu.ac.th/" target="_blank" rel="noopener">lifelong.cmu.ac.th ↗</a></div></li>
+          <li><span class="sn">2</span><div><b>เข้าเรียนออนไลน์</b><p>สมัครเสร็จแล้ว เข้าเรียนหลักสูตรดอยหลวงเชียงดาวได้ที่ลิงก์นี้</p><a class="map" href="https://cmu.to/chiangdao101" target="_blank" rel="noopener">cmu.to/chiangdao101 ↗</a></div></li>
+          <li><span class="sn">3</span><div><b>ดาวน์โหลดใบประกาศนียบัตร</b><p>เรียนครบทั้ง 8 บทแล้ว ดาวน์โหลดได้ที่ลิงก์เดิม</p><a class="map" href="https://cmu.to/chiangdao101" target="_blank" rel="noopener">cmu.to/chiangdao101 ↗</a></div></li>
+        </ol>
+        <div class="lessons" role="group" aria-label="บทเรียนที่เรียนแล้ว">
+          <label class="les"><input type="checkbox" id="les1" data-save>บท 1</label>
+          <label class="les"><input type="checkbox" id="les2" data-save>บท 2</label>
+          <label class="les"><input type="checkbox" id="les3" data-save>บท 3</label>
+          <label class="les"><input type="checkbox" id="les4" data-save>บท 4</label>
+          <label class="les"><input type="checkbox" id="les5" data-save>บท 5</label>
+          <label class="les"><input type="checkbox" id="les6" data-save>บท 6</label>
+          <label class="les"><input type="checkbox" id="les7" data-save>บท 7</label>
+          <label class="les"><input type="checkbox" id="les8" data-save>บท 8</label>
+        </div>
+        <ul class="checks">
+          <li><label class="chk"><input type="checkbox" id="quiz" data-save><span><b>ดาวน์โหลดใบประกาศนียบัตรแล้ว</b><small>เก็บไว้แสดงต่อเจ้าหน้าที่วันอบรม</small></span></label></li>
+        </ul>
+        <div class="prog"><span>เรียนแล้ว <b id="les-count">0/8</b></span><span id="les-status"></span></div>
+        <span class="must">ยังไม่ผ่าน E-learning = เข้าอบรมหน้างานไม่ได้</span>
+        <ul class="fine">
+          <li>ใบประกาศนียบัตรใช้ได้เฉพาะหลักสูตรประจำปี พ.ศ. 2569–2570 นำไปใช้แทนใบของปีถัดไปไม่ได้</li>
+          <li>คนที่ไม่ได้ลงทะเบียนขึ้นดอย แต่สนใจเรื่องธรรมชาติ ระบบนิเวศ และการอนุรักษ์ ก็สมัครเรียนหลักสูตรนี้ได้เช่นกัน</li>
+        </ul>
+      </article>
+      <article class="card wide">
+        <div class="card-head"><h3>เอกสารที่ต้องนำไปวันอบรม</h3><span class="pill">แสดงต่อเจ้าหน้าที่ · พฤ. 7 ม.ค.</span></div>
+        <p>เตรียมให้ครบ 3 อย่าง ใส่ซองกันน้ำไว้ด้วยกัน แล้วกดที่ช่องเพื่อติ๊กว่าเตรียมแล้ว</p>
+        <div class="docs">
+          <label class="doc"><input type="checkbox" id="doc-id" data-save>
+            <span class="doc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><circle cx="8.5" cy="11" r="2.2"/><path d="M5.5 16c.6-1.6 1.8-2.4 3-2.4s2.4.8 3 2.4M14 10h4.5M14 13.5h3"/></svg></span>
+            <span class="doc-tx"><b>บัตรประจำตัวประชาชน</b><small>ตัวจริงเท่านั้น สำเนาใช้ไม่ได้</small></span>
+            <span class="doc-ck" aria-hidden="true"></span>
+          </label>
+          <label class="doc"><input type="checkbox" id="doc-cert" data-save>
+            <span class="doc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5h9l4 4v13H6z"/><path d="M15 3.5v4h4"/><circle cx="12.5" cy="13" r="2.6"/><path d="M11 15.3 10.3 19l2.2-1.2 2.2 1.2-.7-3.7"/></svg></span>
+            <span class="doc-tx"><b>ใบประกาศนียบัตร E-learning</b><small>จาก Lifelong CMU ปี 2569–2570 หลังเรียนครบ 8 บท</small></span>
+            <span class="doc-ck" aria-hidden="true"></span>
+          </label>
+          <label class="doc"><input type="checkbox" id="doc-med" data-save>
+            <span class="doc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 4.5V3h6v1.5"/><path d="M12 9.5v6M9 12.5h6"/></svg></span>
+            <span class="doc-tx"><b>ใบรับรองแพทย์</b><small>อายุไม่เกิน 7 วัน นับถึงวันขึ้นดอย</small></span>
+            <span class="doc-ck" aria-hidden="true"></span>
+          </label>
+        </div>
+        <div class="medwin">
+          <div class="medwin-h"><b>วันที่ไปขอใบรับรองแพทย์ได้</b><span>มกราคม 2570</span></div>
+          <div class="days8" role="img" aria-label="ใบรับรองแพทย์ควรออกระหว่าง 1 ถึง 7 มกราคม 2570 วันขึ้นดอยคือ 8 มกราคม">
+            <span><small>ศ.</small>1</span><span><small>ส.</small>2</span><span><small>อา.</small>3</span><span><small>จ.</small>4</span><span><small>อ.</small>5</span><span class="go"><small>พ.</small>6</span><span class="train"><small>พฤ.</small>7</span><span class="up"><small>ศ.</small>8</span>
+          </div>
+          <div class="legend"><span><i class="k-ok"></i>ออกใบได้</span><span><i class="k-go"></i>6 ม.ค. วันออกเดินทาง ควรได้ใบก่อนวันนี้</span><span><i class="k-up"></i>8 ม.ค. วันขึ้นดอย</span></div>
+        </div>
+        <span class="hint">การติ๊กเก็บไว้ในเครื่องนี้เท่านั้น แต่ละคนเช็กของตัวเองได้</span>
+      </article>
+    </div>
+  </section>
+
+  <section class="day" id="d1" data-date="2027-01-06">
+    <div class="dayhead"><span class="daynum">วันที่ 1</span><h2>พุธ 6 ม.ค.</h2><span class="tag">กรุงเทพฯ → เชียงดาว</span></div>
+    <p class="sub">เดินทางกลางคืน นอนบนรถ</p>
+    <ol class="tl">
+      <li class="key"><span class="time">19:00</span><div class="what"><p>นัดรวมตัวที่ <span class="tbd">[จุดนัด – รอยืนยัน]</span> ขนของขึ้นรถ</p></div></li>
+      <li><span class="time">19:30</span><div class="what"><p>ออกเดินทางจากกรุงเทพฯ</p></div></li>
+      <li><span class="time">ระหว่างทาง</span><div class="what"><p>ปาร์ตี้จิบ ๆ บนรถ</p></div></li>
+      <li><span class="time">ดึก</span><div class="what"><p>นอนบนรถ</p><p class="note">เก็บแรงไว้ ถึงเชียงดาวราว 07:15</p></div></li>
+    </ol>
+  </section>
+
+  <section class="day" id="d2" data-date="2027-01-07">
+    <div class="dayhead"><span class="daynum">วันที่ 2</span><h2>พฤหัสบดี 7 ม.ค.</h2><span class="tag">อบรม · เตรียมตัว</span></div>
+    <p class="sub">อบรมก่อนขึ้นดอย ซื้อเสบียง พักโฮมสเตย์</p>
+    <ol class="tl">
+      <li><span class="time">~07:15</span><div class="what"><p>ถึง อ.เชียงดาว ล้างหน้า กินข้าวเช้า</p></div></li>
+      <li><span class="time">08:30</span><div class="what"><p>ถึงจุดอบรม ศาลาอเนกประสงค์ วัดถ้ำเชียงดาว</p><p class="note">เปิดลงทะเบียน 09:00–10:00 น.</p></div></li>
+      <li class="key"><span class="time">09:00–12:00</span><div class="what"><p>อบรมก่อนขึ้นดอย</p><p class="note">พกบัตรประชาชนตัวจริง ใบประกาศ E-learning และใบรับรองแพทย์ · <a href="#prep">ดูรายการ</a></p><span class="must">ทุกคนต้องเข้า ไม่เข้าถือว่าสละสิทธิ์</span></div></li>
+      <li><span class="time">12:00</span><div class="what"><p>กินข้าวเที่ยง</p></div></li>
+      <li><span class="time">13:30</span><div class="what"><p>ตลาดเชียงดาว ซื้ออาหารกินบนดอย + น้ำดื่ม</p></div></li>
+      <li><span class="time">15:00</span><div class="what"><p>เช็กอิน ทุ่งเศรษฐีโฮมสเตย์แอนด์คาเฟ่ พักผ่อน นอนชดเชย</p><a class="map" href="https://maps.app.goo.gl/dqYJQaBdBuppeP639" target="_blank" rel="noopener">เปิดแผนที่ ↗</a></div></li>
+      <li><span class="time">เย็น</span><div class="what"><p>จัดเป้ แยกของฝากลูกหาบ ปาร์ตี้จิบ ๆ</p></div></li>
+      <li><span class="time">21:00</span><div class="what"><p>เข้านอน</p></div></li>
+    </ol>
+  </section>
+
+  <section class="day" id="d3" data-date="2027-01-08">
+    <div class="dayhead"><span class="daynum">วันที่ 3</span><h2>ศุกร์ 8 ม.ค.</h2><span class="tag summit">วันเดินขึ้นดอย</span></div>
+    <p class="sub">เดินราว 8.5 กม. ประมาณ 6 ชั่วโมง ค้างคืนบนดอย</p>
+    <ol class="tl">
+      <li><span class="time">05:30</span><div class="what"><p>ตื่น กินข้าวเช้า</p></div></li>
+      <li class="key"><span class="time">06:30</span><div class="what"><p>รายงานตัวและชั่งน้ำหนักสัมภาระ ที่ทำการเขตรักษาพันธุ์สัตว์ป่าเชียงดาว</p><p class="note">ชั่งของให้ลูกหาบ · เช่าอุปกรณ์ · จ่ายค่าธรรมเนียม</p></div></li>
+      <li><span class="time">07:00</span><div class="what"><p>ขึ้นรถไปจุดเริ่มเดินเด่นหญ้าขัด</p><p class="note">ประมาณ 1 ชม.</p></div></li>
+      <li class="key"><span class="time">~08:00</span><div class="what"><p>เริ่มเดิน ประมาณ 8.5 กม. (~6 ชม.)</p>
+        <div class="trail" aria-label="เส้นทางเดินจากเด่นหญ้าขัดถึงลานกางเต็นท์">
+          <svg viewBox="0 0 300 70" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M4 62 C40 58 60 50 90 46 S150 30 190 26 S250 16 296 12" fill="none" stroke="var(--pine)" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="4" cy="62" r="4" fill="var(--pine)"/>
+            <circle cx="296" cy="12" r="5" fill="var(--dawn)"/>
+          </svg>
+          <div class="lbls"><span>เด่นหญ้าขัด · 08:00</span><span>8.5 กม. · ~6 ชม.</span><span>ลานกางเต็นท์ · ~14:00</span></div>
+        </div>
+      </div></li>
+      <li><span class="time">~14:00</span><div class="what"><p>ถึงลานกางเต็นท์ กางเต็นท์ พักผ่อน</p></div></li>
+      <li><span class="time">เย็น</span><div class="what"><p>ชมพระอาทิตย์ตก ค้างคืนบนดอย</p></div></li>
+    </ol>
+  </section>
+
+  <section class="day" id="d4" data-date="2027-01-09">
+    <div class="dayhead"><span class="daynum">วันที่ 4</span><h2>เสาร์ 9 ม.ค.</h2><span class="tag summit">พิชิตยอด</span></div>
+    <p class="sub">พระอาทิตย์ขึ้นบนยอด ลงดอย ไปเขื่อนแม่งัด</p>
+    <ol class="tl">
+      <li class="key"><span class="time">เช้ามืด</span><div class="what"><p>ขึ้นยอดดูพระอาทิตย์ขึ้น</p></div></li>
+      <li><span class="time">เช้า</span><div class="what"><p>กินข้าวเช้า เก็บเต็นท์ เก็บขยะทั้งหมดลงมา</p></div></li>
+      <li><span class="time">~12:00</span><div class="what"><p>ถึงจุดเด่นหญ้าขัด ขึ้นรถกลับ</p><p class="note">ประมาณ 1 ชม.</p></div></li>
+      <li><span class="time">~13:00</span><div class="what"><p>คืนอุปกรณ์ รับเงินมัดจำขยะคืน กินข้าวเที่ยง</p></div></li>
+      <li><span class="time">~14:00</span><div class="what"><p>ออกเดินทางไปเขื่อนแม่งัดสมบูรณ์ชล</p><p class="note">ประมาณ 1 ชม.</p></div></li>
+      <li><span class="time">~15:00</span><div class="what"><p>เช็กอิน <span class="tbd">[ที่พักแม่งัด – รอยืนยัน]</span> ปาร์ตี้สุดเหวี่ยง พักผ่อน</p></div></li>
+    </ol>
+  </section>
+
+  <section class="day" id="d5" data-date="2027-01-10">
+    <div class="dayhead"><span class="daynum">วันที่ 5</span><h2>อาทิตย์ 10 ม.ค.</h2><span class="tag">แม่งัด → กรุงเทพฯ</span></div>
+    <p class="sub">ล่องเรือชมต้นฉำฉายักษ์ แล้วเดินทางกลับ</p>
+    <ol class="tl">
+      <li class="key"><span class="time">06:15–07:30</span><div class="what"><p>ลงเรือถ่ายรูปต้นจามจุรี (ฉำฉา) ยักษ์กลางน้ำ</p>
+        <figure class="photo"><img src="img/chamcha.jpg" alt="ต้นจามจุรียักษ์ขึ้นกลางน้ำ เงาสะท้อนผิวน้ำยามเช้า" loading="lazy"><figcaption>ต้นฉำฉากลางน้ำ เขื่อนแม่งัดสมบูรณ์ชล ช่วงเช้ามีหมอกบาง ๆ</figcaption></figure>
+      </div></li>
+      <li><span class="time">เช้า</span><div class="what"><p>กินข้าวเช้า เก็บสัมภาระ เช็กเอาต์</p></div></li>
+      <li><span class="time">10:00</span><div class="what"><p>ออกเดินทางกลับกรุงเทพฯ</p></div></li>
+      <li><span class="time">21:00–22:00</span><div class="what"><p>ถึงกรุงเทพฯ โดยประมาณ</p></div></li>
+    </ol>
+  </section>
+
+  <section class="prep" id="money">
+    <div class="dayhead"><span class="daynum">ค่าใช้จ่าย</span><h2>ชีทรวมรายรับรายจ่ายทั้งหมด</h2></div>
+    <a class="sheet-link" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSmWCdkKAD5g9vYrqT20zRi_iV02xRaKsqN0zX3s6HOQ4V8NvpeSKA1S89Sn4qkspKQMlE2AcGzYkNk/pubhtml#gid=1732764396" target="_blank" rel="noopener">
+      <span class="doc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9.5h18M9 9.5V20M15 9.5V20"/></svg></span>
+      <span class="doc-tx"><b>เปิดชีทรายรับรายจ่าย</b><small>Google Sheets</small></span>
+      <span class="arrow" aria-hidden="true">↗</span>
+    </a>
+  </section>
+
+  <aside class="notes">
+    <h2>สิ่งที่ห้ามลืม</h2>
+    <ul>
+      <li>เรียน E-learning ครบ 8 บทที่ cmu.to/chiangdao101 และดาวน์โหลดใบประกาศนียบัตรก่อนเดินทาง ไม่อย่างนั้นเข้าอบรมหน้างานไม่ได้</li>
+      <li>วันอบรมพกบัตรประชาชนตัวจริง ใบประกาศ E-learning และใบรับรองแพทย์อายุไม่เกิน 7 วัน</li>
+      <li>อบรมวันพฤหัสบดี 7 ม.ค. 09:00–12:00 เข้าทุกคน ไม่เข้าถือว่าสละสิทธิ์ขึ้นดอย</li>
+      <li>เช้าวันศุกร์ 06:30 ต้องถึงที่ทำการเขตฯ เพื่อชั่งสัมภาระให้ลูกหาบ แยกของฝากลูกหาบให้เสร็จตั้งแต่คืนก่อน</li>
+      <li>เก็บขยะทั้งหมดลงมาจากดอย เพื่อรับเงินมัดจำขยะคืน</li>
+      <li>ซื้ออาหารและน้ำดื่มสำหรับบนดอยที่ตลาดเชียงดาวบ่ายวันพฤหัสบดี</li>
+      <li>บนดอยเดือนมกราคมอากาศหนาวจัดตอนกลางคืนและเช้ามืด เตรียมเสื้อกันหนาวให้พอ</li>
+    </ul>
+  </aside>
+</main>
+
+<footer>เวลาทั้งหมดเป็นเวลาโดยประมาณ อาจปรับตามสภาพอากาศและการจราจร</footer>
+
+<script>
+(function(){
+  // 6 ม.ค. 2570 = 6 Jan 2027, 19:00 Bangkok (UTC+7)
+  var depart = new Date("2027-01-06T19:00:00+07:00").getTime();
+  var end = new Date("2027-01-10T22:00:00+07:00").getTime();
+  var box = document.getElementById("countdown");
+  function bkkDate(){ // YYYY-MM-DD in Bangkok
+    return new Date(Date.now()+7*3600e3).toISOString().slice(0,10);
+  }
+  function tick(){
+    var now = Date.now();
+    var units = document.getElementById("cd-units"), label = document.getElementById("cd-label");
+    if (now < depart){
+      var sec = Math.floor((depart-now)/1000);
+      var p = function(n){ return String(n).padStart(2,"0"); };
+      document.getElementById("cd-d").textContent = Math.floor(sec/86400);
+      document.getElementById("cd-h").textContent = p(Math.floor(sec%86400/3600));
+      document.getElementById("cd-m").textContent = p(Math.floor(sec%3600/60));
+      document.getElementById("cd-s").textContent = p(sec%60);
+    } else if (now <= end){
+      units.hidden = true; label.innerHTML = '<b>กำลังอยู่ในทริป</b> เที่ยวให้สนุก ดูแลกันด้วยนะ';
+    } else {
+      units.hidden = true; label.innerHTML = '<b>จบทริปแล้ว</b> ขอบคุณทุกคน';
+    }
+    var el = document.getElementById("el-open");
+    if (el) el.textContent = now >= new Date("2026-11-01T10:30:00+07:00").getTime()
+      ? "เปิดระบบแล้ว ตั้งแต่ 1 พ.ย. 2569" : "เปิดระบบ 1 พ.ย. 2569 · 10:30 น.";
+    var today = bkkDate();
+    document.querySelectorAll("[data-date]").forEach(function(el){
+      var on = el.getAttribute("data-date")===today;
+      if (el.tagName==="A") el.classList.toggle("is-today", on);
+      else {
+        var head = el.querySelector(".dayhead"), t = head.querySelector(".tag.now");
+        if (on && !t){ t=document.createElement("span"); t.className="tag now"; t.textContent="วันนี้"; head.appendChild(t); }
+        if (!on && t) t.remove();
+      }
+    });
+  }
+  tick(); setInterval(tick, 1000);
+
+  // Personal checklist, saved in this browser only
+  var KEY = "chiangdao-2570-checks", saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e) { saved = {}; }
+  var boxes = document.querySelectorAll("input[data-save]");
+  function update(){
+    var n = 0;
+    for (var i=1;i<=8;i++){ if (document.getElementById("les"+i).checked) n++; }
+    document.getElementById("les-count").textContent = n+"/8";
+    var quiz = document.getElementById("quiz").checked;
+    document.getElementById("les-status").textContent =
+      (n===8 && quiz) ? "พร้อมแล้ว ✓" : (n===8 ? "เหลือดาวน์โหลดใบประกาศฯ" : "");
+  }
+  boxes.forEach(function(b){
+    if (saved[b.id]) b.checked = true;
+    b.addEventListener("change", function(){
+      saved[b.id] = b.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch(e) {}
+      update();
+    });
+  });
+  update();
+})();
+</script>
+
+</html>
