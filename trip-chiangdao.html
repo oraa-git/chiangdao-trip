@@ -161,7 +161,7 @@ main{padding-block:24px 48px}
 .tl li:last-child::before{display:none}
 .tl li::after{content:"";position:absolute;left:104px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:2px solid var(--pine)}
 .tl li.key::after{background:var(--dawn);border-color:var(--dawn)}
-.time{font-family:var(--f-mono);font-size:.88rem;color:var(--pine);text-align:right;padding-top:1px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.time{font-family:var(--f-mono);font-size:.88rem;color:var(--pine);text-align:right;padding-top:1px;font-variant-numeric:tabular-nums;white-space:normal;line-height:1.45;min-width:0;overflow-wrap:anywhere}
 .what{min-width:0;padding-left:14px}
 .what p{margin:0}
 .what .note{color:var(--muted);font-size:.9rem;margin-top:2px}
@@ -197,9 +197,9 @@ main{padding-block:24px 48px}
 footer{color:var(--muted);font-size:.82rem;text-align:center;padding-block:0 32px}
 
 @media (max-width:480px){
-  .tl li{grid-template-columns:62px 1fr;gap:10px}
-  .tl li::before{left:70px}
-  .tl li::after{left:66px}
+  .tl li{grid-template-columns:64px 1fr;gap:12px}
+  .tl li::before{left:74px}
+  .tl li::after{left:70px}
   .time{font-size:.8rem}
   .dayhead h2{font-size:1.3rem}
   .card{padding:16px}
