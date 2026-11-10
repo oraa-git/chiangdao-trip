@@ -170,9 +170,25 @@ main{padding-block:24px 48px}
 .map{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:.88rem;text-decoration:none;border:1px solid var(--line);background:var(--surface);padding:3px 12px;border-radius:999px;color:var(--pine)}
 .map:hover{border-color:var(--pine)}
 
-.trail{margin-top:10px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
-.trail svg{display:block;width:100%;height:70px}
-.trail .lbls{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);gap:8px}
+.trail{margin-top:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 16px 12px;display:grid;gap:14px}
+.trail-plot{position:relative;height:130px;margin:22px 10px 18px}
+.trail-plot svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.pin{position:absolute;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--surface);border:3px solid var(--pine);box-shadow:0 0 0 4px var(--surface)}
+.pin.camp{width:16px;height:16px;margin:-8px 0 0 -8px;background:var(--pine)}
+.pin.peak{border-color:var(--dawn);background:var(--dawn);box-shadow:0 0 0 4px var(--surface),0 0 0 8px var(--dawn-soft)}
+.pl{position:absolute;font-size:.78rem;font-weight:600;white-space:nowrap;line-height:1.2}
+.pl-start{left:-4px;top:calc(88% + 12px);color:var(--pine)}
+.pl-camp{left:80%;top:calc(30% + 14px);transform:translateX(-50%);color:var(--pine);background:var(--surface);padding:1px 6px;border-radius:4px}
+.pl-peak{right:-6px;top:calc(8% - 26px);color:var(--warn-fg)}
+.trail-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;border-top:1px solid var(--line);padding-top:12px}
+.trail-stats div{display:flex;flex-direction:column;min-width:0}
+.trail-stats small{font-size:.75rem;color:var(--muted)}
+.trail-stats b{font-family:var(--f-mono);font-weight:500;font-size:1.05rem;color:var(--fg);font-variant-numeric:tabular-nums}
+.trail-key{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.75rem;color:var(--muted)}
+.trail-key span{display:inline-flex;align-items:center;gap:6px}
+.trail-key i{display:inline-block;width:16px;height:0;border-top:3px solid var(--pine);border-radius:2px}
+.trail-key i.k-summit{border-top:3px dashed var(--dawn)}
+@media (max-width:480px){.trail-stats{grid-template-columns:repeat(2,1fr);row-gap:10px}.trail-plot{height:110px}}
 
 /* Notes */
 .notes{margin-top:32px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
@@ -341,13 +357,29 @@ footer{color:var(--muted);font-size:.82rem;text-align:center;padding-block:0 32p
       <li class="key"><span class="time">06:30</span><div class="what"><p>รายงานตัวและชั่งน้ำหนักสัมภาระ ที่ทำการเขตรักษาพันธุ์สัตว์ป่าเชียงดาว</p><p class="note">ชั่งของให้ลูกหาบ · เช่าอุปกรณ์ · จ่ายค่าธรรมเนียม</p></div></li>
       <li><span class="time">07:00</span><div class="what"><p>ขึ้นรถไปจุดเริ่มเดินเด่นหญ้าขัด</p><p class="note">ประมาณ 1 ชม.</p></div></li>
       <li class="key"><span class="time">~08:00</span><div class="what"><p>เริ่มเดิน ประมาณ 8.5 กม. (~6 ชม.)</p>
-        <div class="trail" aria-label="เส้นทางเดินจากเด่นหญ้าขัดถึงลานกางเต็นท์">
-          <svg viewBox="0 0 300 70" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M4 62 C40 58 60 50 90 46 S150 30 190 26 S250 16 296 12" fill="none" stroke="var(--pine)" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="4" cy="62" r="4" fill="var(--pine)"/>
-            <circle cx="296" cy="12" r="5" fill="var(--dawn)"/>
-          </svg>
-          <div class="lbls"><span>เด่นหญ้าขัด · 08:00</span><span>8.5 กม. · ~6 ชม.</span><span>ลานกางเต็นท์ · ~14:00</span></div>
+        <div class="trail" role="img" aria-label="เส้นทางเดินจากเด่นหญ้าขัดถึงลานกางเต็นท์ 8.5 กิโลเมตร ประมาณ 6 ชั่วโมง แล้วขึ้นยอดเช้าวันเสาร์">
+          <div class="trail-plot">
+            <svg viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true">
+              <defs><linearGradient id="trail-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--pine);stop-opacity:.30"/><stop offset="1" style="stop-color:var(--pine);stop-opacity:0"/></linearGradient></defs>
+              <path d="M0 25H300M0 50H300M0 75H300" stroke="var(--line)" stroke-width="1" stroke-dasharray="2 4" vector-effect="non-scaling-stroke"/>
+              <path d="M0 88 C30 86 50 76 80 68 S130 58 160 48 S215 34 240 30 L240 100 L0 100Z" fill="url(#trail-fill)"/>
+              <path d="M0 88 C30 86 50 76 80 68 S130 58 160 48 S215 34 240 30" fill="none" stroke="var(--pine)" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+              <path d="M240 30 C262 26 282 16 300 8" fill="none" stroke="var(--dawn)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="5 5" vector-effect="non-scaling-stroke"/>
+            </svg>
+            <span class="pin start" style="left:0;top:88%"></span>
+            <span class="pin camp" style="left:80%;top:30%"></span>
+            <span class="pin peak" style="left:100%;top:8%"></span>
+            <span class="pl pl-start">เด่นหญ้าขัด</span>
+            <span class="pl pl-camp">ลานกางเต็นท์</span>
+            <span class="pl pl-peak">ยอด 2,225 ม.</span>
+          </div>
+          <div class="trail-stats">
+            <div><small>ระยะทาง</small><b>8.5 กม.</b></div>
+            <div><small>เวลาเดิน</small><b>~6 ชม.</b></div>
+            <div><small>เริ่มเดิน</small><b>08:00</b></div>
+            <div><small>ถึงแคมป์</small><b>~14:00</b></div>
+          </div>
+          <div class="trail-key"><span><i class="k-trail"></i>วันนี้ เดินถึงแคมป์</span><span><i class="k-summit"></i>เช้ามืดวันเสาร์ ขึ้นยอด</span><span>ภาพประกอบ ไม่ตามสเกลจริง</span></div>
         </div>
       </div></li>
       <li><span class="time">~14:00</span><div class="what"><p>ถึงลานกางเต็นท์ กางเต็นท์ พักผ่อน</p></div></li>
