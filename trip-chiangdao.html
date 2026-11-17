@@ -170,6 +170,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--dawn);outline-offse
 .daynav .sep{flex:0 0 1px;align-self:stretch;background:var(--line);margin:4px 2px}
 .daynav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
 .daynav .wrap{display:flex;gap:6px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+.daynav .wrap::-webkit-scrollbar{display:none}
+/* Wide screens: show every chip, wrapping to a second row if needed */
+@media (min-width:720px){.daynav .wrap{max-width:1100px;flex-wrap:wrap;overflow:visible}}
+/* Phones: swipe sideways; fade the right edge so it's clear there's more */
+@media (max-width:719px){
+  .daynav .wrap{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 44px),transparent);mask-image:linear-gradient(to right,#000 calc(100% - 44px),transparent)}
+  .daynav .wrap.at-end{-webkit-mask-image:none;mask-image:none}
+}
 .daynav a{flex:0 0 auto;text-decoration:none;color:var(--fg);border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 14px;font-size:.88rem;white-space:nowrap}
 .daynav a.is-today{border-color:var(--dawn);color:var(--dawn);font-weight:600}
 
@@ -245,6 +253,20 @@ footer{color:var(--muted);font-size:.82rem;text-align:center;padding-block:0 32p
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 </style>
 
+<nav class="daynav" aria-label="เลือกวัน">
+  <div class="wrap">
+    <a href="#rooms" class="info">ห้องพัก</a>
+    <a href="#prep" class="info">ก่อนเดินทาง</a>
+    <a href="#money" class="info">ค่าใช้จ่าย</a>
+    <span class="sep" aria-hidden="true"></span>
+    <a href="#d1" data-date="2027-01-06">พ. 6 · ออกเดินทาง</a>
+    <a href="#d2" data-date="2027-01-07">พฤ. 7 · อบรม</a>
+    <a href="#d3" data-date="2027-01-08">ศ. 8 · เดินขึ้นดอย</a>
+    <a href="#d4" data-date="2027-01-09">ส. 9 · ยอด → แม่งัด</a>
+    <a href="#d5" data-date="2027-01-10">อา. 10 · กลับบ้าน</a>
+  </div>
+</nav>
+
 <header class="hero">
   <div class="wrap">
     <figure class="hero-photo">
@@ -276,20 +298,6 @@ footer{color:var(--muted);font-size:.82rem;text-align:center;padding-block:0 32p
     </nav>
   </div>
 </header>
-
-<nav class="daynav" aria-label="เลือกวัน">
-  <div class="wrap">
-    <a href="#rooms" class="info">ห้องพัก</a>
-    <a href="#prep" class="info">ก่อนเดินทาง</a>
-    <a href="#money" class="info">ค่าใช้จ่าย</a>
-    <span class="sep" aria-hidden="true"></span>
-    <a href="#d1" data-date="2027-01-06">พ. 6 · ออกเดินทาง</a>
-    <a href="#d2" data-date="2027-01-07">พฤ. 7 · อบรม</a>
-    <a href="#d3" data-date="2027-01-08">ศ. 8 · เดินขึ้นดอย</a>
-    <a href="#d4" data-date="2027-01-09">ส. 9 · ยอด → แม่งัด</a>
-    <a href="#d5" data-date="2027-01-10">อา. 10 · กลับบ้าน</a>
-  </div>
-</nav>
 
 <main class="wrap">
 
@@ -533,6 +541,13 @@ footer{color:var(--muted);font-size:.82rem;text-align:center;padding-block:0 32p
     });
   }
   tick(); setInterval(tick, 1000);
+
+  // Drop the edge fade once the chip row is scrolled to its end
+  var navRow = document.querySelector(".daynav .wrap");
+  function navEdge(){ navRow.classList.toggle("at-end", navRow.scrollLeft + navRow.clientWidth >= navRow.scrollWidth - 2); }
+  navRow.addEventListener("scroll", navEdge, {passive:true});
+  window.addEventListener("resize", navEdge);
+  navEdge();
 
   // Personal checklist, saved in this browser only
   var KEY = "chiangdao-2570-checks", saved = {};
