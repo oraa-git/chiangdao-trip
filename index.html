@@ -6,12 +6,12 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="build" content="20261117102642">
+<meta name="build" content="20261117150332">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
 <script>
 (function(){
   if (location.protocol === "file:") return;
-  var cur = "20261117102642", busy = false;
+  var cur = "20261117150332", busy = false;
   function check(){
     if (busy) return; busy = true;
     fetch(location.pathname + "?check=" + Date.now(), {cache: "no-store"})
@@ -158,6 +158,19 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--dawn);outline-offse
 .k-ok{background:var(--pine-soft)}
 .k-go{background:var(--pine-soft);box-shadow:inset 0 0 0 2px var(--pine)}
 .k-up{background:var(--dawn-soft)}
+/* Rooms */
+.stays{display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:10px;font-size:.92rem;color:var(--muted)}
+.stays b{color:var(--fg);font-weight:600}
+.rooms{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}
+.room{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.room h3{font-size:1rem;display:flex;justify-content:space-between;align-items:baseline;gap:6px}
+.room h3 small{font-family:var(--f-body);font-size:.75rem;color:var(--muted);font-weight:400}
+.names{display:flex;flex-wrap:wrap;gap:6px}
+.names span{background:var(--pine-soft);color:var(--pine);border-radius:999px;padding:2px 10px;font-size:.88rem;font-weight:500;max-width:100%;overflow-wrap:anywhere}
+@media (max-width:720px){
+  .rooms{grid-template-columns:repeat(2,1fr)}
+  .room.big{order:-1;grid-column:1/-1}
+}
 .sheet-link{margin-top:16px;display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:12px;text-decoration:none;color:var(--fg);transition:border-color .15s}
 .sheet-link:hover{border-color:var(--pine)}
 .sheet-link .doc-tx{flex:1;padding-right:0}
@@ -281,6 +294,7 @@ footer{color:var(--muted);font-size:.82rem;text-align:center;padding-block:0 32p
     <a href="#d3" data-date="2027-01-08">ศ. 8 · เดินขึ้นดอย</a>
     <a href="#d4" data-date="2027-01-09">ส. 9 · ยอด → แม่งัด</a>
     <a href="#d5" data-date="2027-01-10">อา. 10 · กลับบ้าน</a>
+    <a href="#rooms">ห้องพัก</a>
     <a href="#money">ค่าใช้จ่าย</a>
   </div>
 </nav>
@@ -373,7 +387,7 @@ footer{color:var(--muted);font-size:.82rem;text-align:center;padding-block:0 32p
       <li><span class="time">13:30</span><div class="what"><p>เดินชมถ้ำเชียงดาว</p></div></li>
       <li class="key"><span class="time">15:00</span><div class="what"><p>ตลาดเชียงดาว / โลตัส / 7-11 ซื้ออาหารและน้ำดื่มกินบนดอย</p><p class="note">เช่น ขนมปัง มาม่า ไข่ต้ม</p><span class="must">อย่าลืม! ซื้อเสบียงให้พอสำหรับบนดอย</span><br><a class="map" href="https://maps.app.goo.gl/wpcwGnBRQ5eAkJ987" target="_blank" rel="noopener">เปิดแผนที่ ↗</a></div></li>
       <li><span class="time">16:30</span><div class="what"><p>กินข้าวเย็น ร้านลาบลุงคำ เชียงดาว</p><a class="map" href="https://maps.app.goo.gl/GgoZmCDGLYMuj27F8" target="_blank" rel="noopener">เปิดแผนที่ ↗</a></div></li>
-      <li><span class="time">18:00</span><div class="what"><p>เช็กอิน ทุ่งเศรษฐีโฮมสเตย์แอนด์คาเฟ่ พักผ่อน นอนชดเชย</p><a class="map" href="https://maps.app.goo.gl/dqYJQaBdBuppeP639" target="_blank" rel="noopener">เปิดแผนที่ ↗</a></div></li>
+      <li><span class="time">18:00</span><div class="what"><p>เช็กอิน ม่อนเคียงดาว รีสอร์ทแอนด์โฮมสเตย์ พักผ่อน นอนชดเชย</p><a class="map" href="https://maps.app.goo.gl/roJuBM7w9NUranCB6" target="_blank" rel="noopener">เปิดแผนที่ ↗</a> <a class="map" href="#rooms">ดูห้องพัก</a></div></li>
       <li><span class="time">เย็น</span><div class="what"><p>จัดเป้ แยกของฝากลูกหาบ ปาร์ตี้จิบ ๆ</p></div></li>
       <li><span class="time">21:00</span><div class="what"><p>เข้านอน</p></div></li>
     </ol>
@@ -429,7 +443,7 @@ footer{color:var(--muted);font-size:.82rem;text-align:center;padding-block:0 32p
       <li><span class="time">~14:00</span><div class="what"><p>ถึงจุดเด่นหญ้าขัด ขึ้นรถกลับ</p><p class="note">ประมาณ 1 ชม.</p></div></li>
       <li><span class="time">~15:00</span><div class="what"><p>คืนอุปกรณ์ รับเงินมัดจำขยะคืน กินข้าว</p></div></li>
       <li><span class="time">~16:00</span><div class="what"><p>แวะคาเฟ่ Mist Villa &amp; Cafe</p><p class="note">อยู่ในเชียงดาว ห่างที่ทำการเขตฯ ราว 10 นาที</p><a class="map" href="https://maps.app.goo.gl/qEeiJ2nMbe3EmNPE7" target="_blank" rel="noopener">เปิดแผนที่ ↗</a></div></li>
-      <li><span class="time">~17:00</span><div class="what"><p>ออกเดินทางไป เช็กอิน ภัทรชาบูติก ปาร์ตี้สุดเหวี่ยง พักผ่อน</p><p class="note">ราว 55 กม. ประมาณ 1 ชม. · ที่พักใกล้ต้นฉำฉากลางน้ำ</p><a class="map" href="https://maps.app.goo.gl/WjSKeQ1Dcziti75L7" target="_blank" rel="noopener">เปิดแผนที่ ↗</a></div></li>
+      <li><span class="time">~17:00</span><div class="what"><p>ออกเดินทางไป เช็กอิน ภัทรชาบูติก ปาร์ตี้สุดเหวี่ยง พักผ่อน</p><p class="note">ราว 55 กม. ประมาณ 1 ชม. · ที่พักใกล้ต้นฉำฉากลางน้ำ</p><a class="map" href="https://maps.app.goo.gl/WjSKeQ1Dcziti75L7" target="_blank" rel="noopener">เปิดแผนที่ ↗</a> <a class="map" href="#rooms">ดูห้องพัก</a></div></li>
     </ol>
   </section>
 
@@ -445,6 +459,22 @@ footer{color:var(--muted);font-size:.82rem;text-align:center;padding-block:0 32p
       <li><span class="time">10:00</span><div class="what"><p>ออกเดินทางกลับกรุงเทพฯ</p></div></li>
       <li><span class="time">21:00–22:00</span><div class="what"><p>ถึงกรุงเทพฯ โดยประมาณ</p></div></li>
     </ol>
+  </section>
+
+  <section class="prep" id="rooms">
+    <div class="dayhead"><span class="daynum">ห้องพัก</span><h2>การจัดห้อง</h2></div>
+    <div class="stays">
+      <span><b>คืน พฤ. 7 ม.ค.</b> · ม่อนเคียงดาว รีสอร์ทแอนด์โฮมสเตย์</span>
+      <span><b>คืน ส. 9 ม.ค.</b> · ภัทรชาบูติก</span>
+    </div>
+    <p class="sub">ทั้ง 2 คืนจัดห้องเหมือนกัน</p>
+    <div class="rooms">
+      <article class="room"><h3>ห้อง 1 <small>2 คน</small></h3><div class="names"><span>พี่แซม</span><span>พี่อ้อม</span></div></article>
+      <article class="room"><h3>ห้อง 2 <small>2 คน</small></h3><div class="names"><span>กอล์ฟ</span><span>ตุ๊ต๊ะ</span></div></article>
+      <article class="room"><h3>ห้อง 3 <small>2 คน</small></h3><div class="names"><span>เกมส์</span><span>ภูมิ</span></div></article>
+      <article class="room"><h3>ห้อง 4 <small>2 คน</small></h3><div class="names"><span>พี่เปียก</span><span>อาร์ม</span></div></article>
+      <article class="room big"><h3>ห้อง 5 <small>3 คน</small></h3><div class="names"><span>ต่อ</span><span>พี่เกรท</span><span>เมล์อ้วนน่ารัก</span></div></article>
+    </div>
   </section>
 
   <section class="prep" id="money">
