@@ -127,6 +127,19 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--dawn);outline-offse
 .k-ok{background:var(--pine-soft)}
 .k-go{background:var(--pine-soft);box-shadow:inset 0 0 0 2px var(--pine)}
 .k-up{background:var(--dawn-soft)}
+/* Climbing process */
+.proc{display:grid;gap:12px;margin-top:16px}
+.proc-group{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;min-width:0}
+.proc-group h3{font-size:1.05rem;display:flex;gap:4px 10px;align-items:baseline;flex-wrap:wrap}
+.proc-group h3 small{font-family:var(--f-body);font-size:.8rem;color:var(--muted);font-weight:400}
+.proc-list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:12px}
+.proc-list li{display:flex;gap:12px;min-width:0}
+.proc-list li > div{min-width:0}
+.pn{flex:none;width:26px;height:26px;border-radius:50%;background:var(--pine-soft);color:var(--pine);display:grid;place-items:center;font-family:var(--f-mono);font-size:.8rem;font-weight:500}
+.proc-list b{font-weight:600}
+.proc-list p{margin:2px 0 0;font-size:.88rem;color:var(--muted)}
+.money{color:var(--warn-fg);font-weight:600}
+
 /* Rooms */
 .stays{display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:10px;font-size:.92rem;color:var(--muted)}
 .stays b{color:var(--fg);font-weight:600}
@@ -204,6 +217,7 @@ main{padding-block:24px 48px}
 .what p{margin:0}
 .what .note{color:var(--muted);font-size:.9rem;margin-top:2px}
 .must{display:inline-block;margin-top:6px;font-size:.85rem;background:var(--warn-bg);color:var(--warn-fg);padding:3px 10px;border-radius:6px}
+.opt{display:inline-block;vertical-align:middle;font-size:.72rem;font-weight:600;color:var(--muted);border:1px dashed var(--ridge3);border-radius:999px;padding:0 8px;margin-left:4px;line-height:1.6}
 .tbd{background:var(--warn-bg);color:var(--warn-fg);padding:0 6px;border-radius:4px;font-size:.9em}
 .map{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:.88rem;text-decoration:none;border:1px solid var(--line);background:var(--surface);padding:3px 12px;border-radius:999px;color:var(--pine)}
 .map:hover{border-color:var(--pine)}
@@ -257,6 +271,7 @@ footer{color:var(--muted);font-size:.82rem;text-align:center;padding-block:0 32p
   <div class="wrap">
     <a href="#rooms" class="info">ห้องพัก</a>
     <a href="#prep" class="info">ก่อนเดินทาง</a>
+    <a href="#process" class="info">ขั้นตอนขึ้นดอย</a>
     <a href="#money" class="info">ค่าใช้จ่าย</a>
     <span class="sep" aria-hidden="true"></span>
     <a href="#d1" data-date="2027-01-06">พ. 6 · ออกเดินทาง</a>
@@ -283,7 +298,7 @@ footer{color:var(--muted);font-size:.82rem;text-align:center;padding-block:0 32p
       <div><b>2,225 ม.</b><small>ความสูงยอดดอยหลวงเชียงดาว</small></div>
     </div>
     <div class="countdown" id="countdown">
-      <div class="cd-label" id="cd-label">นับถอยหลังถึงวันออกเดินทาง · <b>พ. 6 ม.ค. 2570 เวลา 19:00 น.</b></div>
+      <div class="cd-label" id="cd-label">นับถอยหลังถึงวันออกเดินทาง · <b>พ. 6 ม.ค. 2570 เวลา 19:30 น.</b></div>
       <div class="cd-units" id="cd-units">
         <div><b id="cd-d">–</b><small>วัน</small></div>
         <div><b id="cd-h">–</b><small>ชั่วโมง</small></div>
@@ -369,10 +384,10 @@ footer{color:var(--muted);font-size:.82rem;text-align:center;padding-block:0 32p
     <div class="dayhead"><span class="daynum">วันที่ 1</span><h2>พุธ 6 ม.ค.</h2><span class="tag">กรุงเทพฯ → เชียงดาว</span></div>
     <p class="sub">เดินทางกลางคืน นอนบนรถ</p>
     <ol class="tl">
-      <li class="key"><span class="time">19:00</span><div class="what"><p>นัดรวมตัวที่ บิ๊กซี ซูเปอร์เซ็นเตอร์ สะพานควาย ขนของขึ้นรถ</p><a class="map" href="https://maps.app.goo.gl/b337dLaDNVyRDaH8A" target="_blank" rel="noopener">เปิดแผนที่จุดนัด ↗</a></div></li>
-      <li><span class="time">19:30</span><div class="what"><p>ออกเดินทางจากกรุงเทพฯ</p></div></li>
+      <li class="key"><span class="time">19:00</span><div class="what"><p>นัดรวมตัวที่ โลตัส ลาดพร้าว ขนของขึ้นรถ</p><a class="map" href="https://maps.app.goo.gl/TC9Uu2JiBxxdcY1r7" target="_blank" rel="noopener">เปิดแผนที่จุดนัด ↗</a></div></li>
+      <li class="key"><span class="time">19:30</span><div class="what"><p>ล้อหมุน ออกเดินทางจากกรุงเทพฯ</p><p class="note">ราว 742 กม. ใช้เวลาประมาณ 11 ชม. รวมแวะพัก</p></div></li>
       <li><span class="time">ระหว่างทาง</span><div class="what"><p>ปาร์ตี้จิบ ๆ บนรถ</p></div></li>
-      <li><span class="time">ดึก</span><div class="what"><p>นอนบนรถ</p><p class="note">เก็บแรงไว้ ถึงเชียงดาวราว 07:15</p></div></li>
+      <li><span class="time">ดึก</span><div class="what"><p>นอนบนรถ</p><p class="note">เก็บแรงไว้ ถึงเชียงดาวราว 06:30–07:00</p></div></li>
     </ol>
   </section>
 
@@ -380,11 +395,15 @@ footer{color:var(--muted);font-size:.82rem;text-align:center;padding-block:0 32p
     <div class="dayhead"><span class="daynum">วันที่ 2</span><h2>พฤหัสบดี 7 ม.ค.</h2><span class="tag">อบรม · เตรียมตัว</span></div>
     <p class="sub">อบรมก่อนขึ้นดอย เที่ยวถ้ำเชียงดาว ซื้อเสบียง พักโฮมสเตย์</p>
     <ol class="tl">
-      <li><span class="time">~07:15</span><div class="what"><p>ถึง อ.เชียงดาว ล้างหน้า กินข้าวเช้า</p><p class="note">ร้านพรเพ็ญ 2498 ขาหมู (Pornpen 2498 Braised Pork Legs)</p><a class="map" href="https://maps.app.goo.gl/pTQ2FnkxJiFqBiYBA" target="_blank" rel="noopener">เปิดแผนที่ ↗</a></div></li>
+      <li><span class="time">~06:30–07:00</span><div class="what"><p>ถึง อ.เชียงดาว ล้างหน้า กินข้าวเช้า</p><p class="note">ร้านพรเพ็ญ 2498 ขาหมู (Pornpen 2498 Braised Pork Legs)</p><a class="map" href="https://maps.app.goo.gl/pTQ2FnkxJiFqBiYBA" target="_blank" rel="noopener">เปิดแผนที่ ↗</a></div></li>
       <li><span class="time">08:30</span><div class="what"><p>ถึงจุดอบรม ศาลาอเนกประสงค์ วัดถ้ำเชียงดาว</p><p class="note">เปิดลงทะเบียน 09:00–10:00 น.</p><a class="map" href="https://maps.app.goo.gl/Nk1mNToy7DvY6WeD9" target="_blank" rel="noopener">เปิดแผนที่ ↗</a></div></li>
       <li class="key"><span class="time">09:00–12:00</span><div class="what"><p>อบรมก่อนขึ้นดอย</p><p class="note">พกบัตรประชาชนตัวจริง ใบประกาศ E-learning และใบรับรองแพทย์ · <a href="#prep">ดูรายการ</a></p><span class="must">ทุกคนต้องเข้า ไม่เข้าถือว่าสละสิทธิ์</span></div></li>
       <li><span class="time">12:00</span><div class="what"><p>กินข้าวเที่ยง</p></div></li>
-      <li><span class="time">13:30</span><div class="what"><p>เดินชมถ้ำเชียงดาว</p></div></li>
+      <li><span class="time">13:30</span><div class="what"><p>เดินชมถ้ำเชียงดาว <span class="opt">ไม่บังคับ</span></p>
+        <p class="note">ค่าเข้า 20 บาท/คน</p>
+        <p class="note">ถ้าจะเข้าโซนถ้ำลึก ๆ ชั้นใน มีค่าไกด์และตะเกียง 200 บาท ส่วนค่าไกด์แล้วแต่เราจะสนับสนุน</p>
+        <p class="note">โซนถ้ำชั้นในไม่อนุญาตให้เข้าไปเอง</p>
+      </div></li>
       <li class="key"><span class="time">15:00</span><div class="what"><p>ตลาดเชียงดาว / โลตัส / 7-11 ซื้ออาหารและน้ำดื่มกินบนดอย</p><p class="note">เช่น ขนมปัง มาม่า ไข่ต้ม</p><span class="must">อย่าลืม! ซื้อเสบียงให้พอสำหรับบนดอย</span><br><a class="map" href="https://maps.app.goo.gl/wpcwGnBRQ5eAkJ987" target="_blank" rel="noopener">เปิดแผนที่ ↗</a></div></li>
       <li><span class="time">16:30</span><div class="what"><p>กินข้าวเย็น ร้านลาบลุงคำ เชียงดาว</p><a class="map" href="https://maps.app.goo.gl/GgoZmCDGLYMuj27F8" target="_blank" rel="noopener">เปิดแผนที่ ↗</a></div></li>
       <li><span class="time">18:00</span><div class="what"><p>เช็กอิน ม่อนเคียงดาว รีสอร์ทแอนด์โฮมสเตย์ พักผ่อน นอนชดเชย</p><a class="map" href="https://maps.app.goo.gl/roJuBM7w9NUranCB6" target="_blank" rel="noopener">เปิดแผนที่ ↗</a> <a class="map" href="#rooms">ดูห้องพัก</a></div></li>
@@ -399,9 +418,9 @@ footer{color:var(--muted);font-size:.82rem;text-align:center;padding-block:0 32p
     <ol class="tl">
       <li><span class="time">05:30</span><div class="what"><p>ตื่น กินข้าวเช้า</p></div></li>
       <li class="key"><span class="time">06:00</span><div class="what"><p>ออกเดินทางไปจุดนัดพบ</p><p class="note">แวะหาข้าวกลางวันระหว่างทาง ไว้กินตอนเที่ยงบนดอย</p><span class="must">อย่าลืม! ซื้อข้าวกลางวันก่อนขึ้นดอย บนทางเดินไม่มีร้านขาย</span></div></li>
-      <li class="key"><span class="time">06:30</span><div class="what"><p>รายงานตัวและชั่งน้ำหนักสัมภาระ ที่ทำการเขตรักษาพันธุ์สัตว์ป่าเชียงดาว</p><p class="note">ชั่งของให้ลูกหาบ · เช่าอุปกรณ์ · จ่ายค่าธรรมเนียม</p></div></li>
+      <li class="key"><span class="time">06:30</span><div class="what"><p>รายงานตัวและชั่งน้ำหนักสัมภาระ ที่ทำการเขตรักษาพันธุ์สัตว์ป่าเชียงดาว</p><p class="note">มาเผื่อเวลา ลงทะเบียนเปิด 07:00 ไม่ควรเกิน 08:00</p><p class="note">ชั่งของให้ลูกหาบ · เช่าอุปกรณ์ · จ่ายค่าธรรมเนียม</p><p class="note">ค่าเข้าพื้นที่ 30 บ. · ที่กางเต็นท์ 30 บ. (ถ้านำเต็นท์มาเอง) · มัดจำขยะ 500 บ. (ได้คืนหลังลงดอย)</p><span class="must">ต้องเตรียมเงินสด!!</span><br><a class="map" href="#process">ดูขั้นตอนขึ้นดอย</a><a class="map" href="https://maps.app.goo.gl/iju4KD8daQTVhDpv8" target="_blank" rel="noopener">เปิดแผนที่ที่ทำการเขตฯ ↗</a></div></li>
       <li><span class="time">07:00</span><div class="what"><p>ขึ้นรถไปจุดเริ่มเดินเด่นหญ้าขัด</p><p class="note">ประมาณ 1 ชม.</p></div></li>
-      <li class="key"><span class="time">~08:00</span><div class="what"><p>เริ่มเดิน ประมาณ 8.5 กม. (~6 ชม.)</p>
+      <li class="key"><span class="time">~08:00</span><div class="what"><p>เริ่มเดิน ประมาณ 8.5 กม. (~6 ชม.)</p><p class="note">เด่นหญ้าขัดเป็นห้องน้ำจุดสุดท้าย จัดการตัวเองให้เรียบร้อยก่อนเดิน</p>
         <div class="trail" role="img" aria-label="เส้นทางเดินจากเด่นหญ้าขัดถึงลานกางเต็นท์ 8.5 กิโลเมตร ประมาณ 6 ชั่วโมง แล้วขึ้นยอดเช้าวันเสาร์">
           <div class="trail-plot">
             <svg viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true">
@@ -439,9 +458,9 @@ footer{color:var(--muted);font-size:.82rem;text-align:center;padding-block:0 32p
       <li><span class="time">05:00</span><div class="what"><p>ตื่น เดินขึ้นยอด</p><p class="note">ประมาณ 1 ชม.</p></div></li>
       <li class="key"><span class="time">~06:50</span><div class="what"><p>ดูพระอาทิตย์ขึ้นบนยอดดอยหลวงเชียงดาว</p></div></li>
       <li><span class="time">~08:00</span><div class="what"><p>กลับแคมป์ กินข้าวเช้า เก็บเต็นท์ เก็บขยะทั้งหมดลงมา</p></div></li>
-      <li class="key"><span class="time">~09:30</span><div class="what"><p>เริ่มเดินลง 8.5 กม.</p><p class="note">ประมาณ 4–5 ชม.</p></div></li>
+      <li class="key"><span class="time">~09:30</span><div class="what"><p>เริ่มเดินลง 8.5 กม.</p><p class="note">ประมาณ 4–5 ชม.</p><span class="must">ต้องออกจากจุดพักแรมไม่เกิน 10:00</span></div></li>
       <li><span class="time">~14:00</span><div class="what"><p>ถึงจุดเด่นหญ้าขัด ขึ้นรถกลับ</p><p class="note">ประมาณ 1 ชม.</p></div></li>
-      <li><span class="time">~15:00</span><div class="what"><p>คืนอุปกรณ์ รับเงินมัดจำขยะคืน กินข้าว</p></div></li>
+      <li><span class="time">~15:00</span><div class="what"><p>คืนอุปกรณ์ รับเงินมัดจำขยะคืน กินข้าว</p><p class="note">ผ่านจุดตรวจเช็กขยะก่อน แล้วรับมัดจำ 500 บ. คืน</p></div></li>
       <li><span class="time">~16:00</span><div class="what"><p>แวะคาเฟ่ Mist Villa &amp; Cafe</p><p class="note">อยู่ในเชียงดาว ห่างที่ทำการเขตฯ ราว 10 นาที</p><a class="map" href="https://maps.app.goo.gl/qEeiJ2nMbe3EmNPE7" target="_blank" rel="noopener">เปิดแผนที่ ↗</a></div></li>
       <li><span class="time">~17:00</span><div class="what"><p>ออกเดินทางไป เช็กอิน ภัทรชาบูติก ปาร์ตี้สุดเหวี่ยง พักผ่อน</p><p class="note">ราว 55 กม. ประมาณ 1 ชม. · ที่พักใกล้ต้นฉำฉากลางน้ำ</p><a class="map" href="https://maps.app.goo.gl/WjSKeQ1Dcziti75L7" target="_blank" rel="noopener">เปิดแผนที่ ↗</a> <a class="map" href="#rooms">ดูห้องพัก</a></div></li>
     </ol>
@@ -457,8 +476,42 @@ footer{color:var(--muted);font-size:.82rem;text-align:center;padding-block:0 32p
       </div></li>
       <li><span class="time">เช้า</span><div class="what"><p>กินข้าวเช้า เก็บสัมภาระ เช็กเอาต์</p></div></li>
       <li><span class="time">10:00</span><div class="what"><p>ออกเดินทางกลับกรุงเทพฯ</p></div></li>
-      <li><span class="time">21:00–22:00</span><div class="what"><p>ถึงกรุงเทพฯ โดยประมาณ</p></div></li>
+      <li><span class="time">21:00–22:00</span><div class="what"><p>ถึงกรุงเทพฯ โดยสวัสดิภาพ</p></div></li>
     </ol>
+  </section>
+
+  <section class="prep" id="process">
+    <div class="dayhead"><span class="daynum">ขั้นตอน</span><h2>กระบวนการขึ้นดอย</h2></div>
+    <p class="sub">สรุปจากประกาศของเขตรักษาพันธุ์สัตว์ป่าเชียงดาว</p>
+    <div class="proc">
+      <div class="proc-group">
+        <h3>วันอบรม <small>วันก่อนขึ้นดอย</small></h3>
+        <ol class="proc-list">
+          <li><span class="pn">1</span><div><b>อบรมที่วัดถ้ำเชียงดาว</b><p>ลงทะเบียน 09:00–10:00 · อบรม 09:00–12:00 (รอบของเรา)</p><p>เอกสาร: บัตรประชาชนตัวจริง · ใบรับรองแพทย์ไม่เกิน 7 วัน</p></div></li>
+        </ol>
+      </div>
+      <div class="proc-group">
+        <h3>วันขึ้นดอย <small>ที่ทำการเขตฯ → เด่นหญ้าขัด → อ่างสลุง</small></h3>
+        <ol class="proc-list">
+          <li><span class="pn">2</span><div><b>ลงทะเบียน</b><p>เริ่ม 07:00 ควรมาไม่เกิน 08:00</p></div></li>
+          <li><span class="pn">3</span><div><b>ชำระค่าธรรมเนียม</b><p>ค่าเข้าพื้นที่เขต <span class="money">30 บาท</span> · ที่กางเต็นท์ <span class="money">30 บาท</span> (กรณีนำเต็นท์มาเอง)</p></div></li>
+          <li><span class="pn">4</span><div><b>รับชุดขับถ่าย และอุปกรณ์ที่เช่าไว้</b><p>เต็นท์ เตาแก๊ส และแผ่นรองนอน อยู่บนดอย</p></div></li>
+          <li><span class="pn">5</span><div><b>ตรวจสอบสัมภาระ นับจำนวนขยะ</b><p>ค่ามัดจำขยะ <span class="money">500 บาท</span> ได้คืนหลังลงจากดอย</p></div></li>
+          <li><span class="pn">6</span><div><b>ฝากสัมภาระกับลูกหาบ (กรณีจองไว้)</b><p>เตรียมน้ำหนักสัมภาระให้พอดีกับที่จองไว้หน้าห้องอบรม</p></div></li>
+          <li><span class="pn">7</span><div><b>จัดกลุ่มออกเดินทาง</b><p>นักสื่อฯ รถ ลูกหาบ · จำเบอร์รถและลูกหาบไว้</p></div></li>
+          <li><span class="pn">8</span><div><b>ตรวจบัตรค่าธรรมเนียม</b><p>ที่หน่วยทุ่งโป่ง</p></div></li>
+          <li><span class="pn">9</span><div><b>เด่นหญ้าขัด จุดเริ่มเดินเท้าขึ้นดอย</b><p>ห้องน้ำจุดสุดท้าย จัดการตัวเองให้เรียบร้อย</p></div></li>
+          <li><span class="pn">10</span><div><b>จุดพักแรมอ่างสลุง</b></div></li>
+        </ol>
+      </div>
+      <div class="proc-group">
+        <h3>วันลงดอย</h3>
+        <ol class="proc-list">
+          <li><span class="pn">11</span><div><b>เดินกลับถึงหน่วยเด่นหญ้าขัด ขึ้นรถกลับ</b><p>ออกจากจุดพักแรมไม่เกิน <span class="money">10:00</span> · รถพากลับจุดลงทะเบียนที่เขตฯ</p></div></li>
+          <li><span class="pn">12</span><div><b>จุดตรวจเช็กขยะ</b><p>ตรวจเช็กขยะหลังลงจากรถ แล้วรับเงินมัดจำขยะคืน</p></div></li>
+        </ol>
+      </div>
+    </div>
   </section>
 
   <section class="prep" id="rooms">
@@ -504,8 +557,8 @@ footer{color:var(--muted);font-size:.82rem;text-align:center;padding-block:0 32p
 
 <script>
 (function(){
-  // 6 ม.ค. 2570 = 6 Jan 2027, 19:00 Bangkok (UTC+7)
-  var depart = new Date("2027-01-06T19:00:00+07:00").getTime();
+  // 6 ม.ค. 2570 = 6 Jan 2027, 19:30 Bangkok (UTC+7)
+  var depart = new Date("2027-01-06T19:30:00+07:00").getTime();
   var end = new Date("2027-01-10T22:00:00+07:00").getTime();
   var box = document.getElementById("countdown");
   function bkkDate(){ // YYYY-MM-DD in Bangkok
